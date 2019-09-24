@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class LandingController extends Controller
 {
@@ -11,7 +12,8 @@ class LandingController extends Controller
 
     public function index()
     {
-    	return view('landing', ['page' => '/']);
+    	$books = Book::all();
+    	return view('landing', ['page' => '/', 'books'=> $books]);
     }
 
 }
